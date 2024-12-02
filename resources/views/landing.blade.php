@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wedding Platform</title>
+    <title>Afifah Backdrop</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 
     <!-- Memuat CSS dari Vite -->
@@ -15,56 +15,74 @@
             introMessage: "Halo! Ada yang bisa saya bantu hari ini?",
             title: "AFIFAH BACKDROP",
             placeholderText: "Ketik pesan Anda...",
-            aboutText: "Powered by BotMan"
         };
     </script>
     <script src="https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js"></script>
 </head>
 <body>
     <header>
-        <div>
+        <div class="header-container">
+            <img src="/images/logo.png" alt="Moon Icon" class="moon-icon">
             <h1>AFIFAH BACKDROP</h1>
-            <nav>
-                <a href="/">Home</a>
-                <a href="/about">About</a>
-                <a href="/services">Services</a>
-                <a href="/contact">Contact</a>
-            </nav>
         </div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="#services">Services</a>
+            <a href="#footer">Contact</a>
+        </nav>
     </header>
 
-    <div class="hero-section">
-        <h2>Selamat datang di Wedding Platform</h2>
-        <p>Temukan berbagai vendor pernikahan terbaik di sini</p>
-        {{-- <a href="/dashboard" style="padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px;">Mulai</a> --}}
-    </div>
+
 
     <div class="image-box">
-        <img src="https://via.placeholder.com/600x300" alt="Image Showcase">
+        <img src="/images/bg.jpg" alt="Image Showcase">
+        <div class="text-overlay">Solusi Terlengkap untuk Dekorasi Pernikahan Impian Anda di Indonesia</div>
     </div>
 
-    <div class="vendor-category">
-        <div>Dekorasi</div>
-        <div>HEINA</div>
-        <div>souvenir</div>
+
+    <div id="services" class="vendor-category">
+        <section class="services-section">
+            <h2>Services</h2>
+            <div class="vendor-item">
+                <img src="{{ asset('images/dekor.png') }}" alt="Dekor" style="max-width: 100%; height: 100%;">
+                <p class="image-caption">Dekorasi</p>
+            </div>
+            <div class="vendor-item">
+                <img src="{{ asset('images/hena.png') }}" alt="Hena" style="max-width: 100%; height: 100%;">
+                <p class="image-caption">Hena</p>
+            </div>
+            <div class="vendor-item">
+                <img src="{{ asset('images/sovenir.png') }}" alt="Sovenir" style="max-width: 100%; height: 100%;">
+                <p class="image-caption">Sovenir</p>
+            </div>
+        </section>
     </div>
 
     <div class="vendor-signup">
         <div class="testimonials-box">
-            <div class="testimonial">
-                <p>"Layanan sangat profesional! Dekorasi pernikahan kami luar biasa." - <strong>Vendor A</strong></p>
+            <div class="testimonial-group">
+                <div class="caption">Testimoni</div>
+                <div class="testimonial">
+                    <p>"Aku suka dekorasinya, sovenirnya juga cantik. Makasih ka semoga sukses terus ya. ❤️" - <strong>Klien A</strong></p>
+                </div>
             </div>
-            <div class="testimonial">
-                <p>"Fotografernya sangat berpengalaman dan hasil fotonya luar biasa!" - <strong>Vendor B</strong></p>
+            <div class="testimonial-group">
+                <div class="caption">Testimoni</div>
+                <div class="testimonial">
+                    <p>"Makasih banyak aku suka banget dekorasinya banyak yang bilang bagus banget ka!!!" - <strong>Klien B</strong></p>
+                </div>
             </div>
-            <div class="testimonial">
-                <p>"Musiknya membuat acara kami lebih meriah! Terima kasih banyak!" - <strong>Vendor C</strong></p>
+            <div class="testimonial-group">
+                <div class="caption">Testimoni</div>
+                <div class="testimonial">
+                    <p>"H-1 acara akad nikah bingung krn backdrop cancel sepihak dengan alasannya. Browsing2 cari jasa penyewaan backdrop match dengan Afifah Souvenir dan ownernya mbak pipah fast respon banget. Siang itu juga langsung deal dan sorenya dipasang. Pelayanan prima owner nya langsung turun tangan. Fast respon dan ramah banget ownernya. Sukses selalu untuk bisnisnya mbak pipah. 😁" - <strong>Klien C</strong></p>
+                </div>
             </div>
         </div>
+    </div>
 
-        <div class="signup-button">
-            <a href="/register-vendor" class="btn-register">Daftar Jadi Vendor</a>
-        </div>
+
+
     </div>
 
     <!-- Chatbot Integration -->
@@ -98,5 +116,18 @@
             }, 500); // Periksa setiap 500ms
         });
     </script>
+
+    <footer id="footer" class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Afifah Backdrop Pernikahan. All Rights Reserved.</p>
+            <div class="contact-info">
+                <p><strong>Kontak:</strong> <a href="https://wa.me/6285888027756" target="_blank">+62 858 8802 7756</a></p>
+                <p><strong>Instagram:</strong> <a href="https://www.instagram.com/afifahbackdrop/" target="_blank">@afifah_backdrop</a></p>
+                <p><strong>Alamat:</strong> Jl. Bona No.52, RT.11/RW.3, Penggilingan, Kec. Cakung, Jakarta, Daerah Khusus Ibukota Jakarta 13940, Cakung, Indonesia 13940 </p>
+            </div>
+        </div>
+    </footer>
+
+
 </body>
 </html>

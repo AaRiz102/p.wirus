@@ -1,87 +1,218 @@
-body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-}
-header {
-    background-color: #80CEE1;
-    color: white;
-    padding: 10px 0;
+    /* Global Styles */
+    body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    header {
+        background-color: #80CEE1;
+        color: white;
+        padding: 10px 0;
+        text-align: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .header-container {
+        display: flex;
+        flex-direction: column; /* Mengatur kontainer menjadi vertikal */
+        align-items: center;
+        gap: 10px;
+    }
+
+    header nav {
+        margin-top: 10px; /* Memberi jarak antara teks header dan navigasi */
+    }
+
+    header nav a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        margin: 0 10px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        border-radius: 5px;
+    }
+
+    header nav a:hover {
+        background-color: #80CEE1;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        color: white;
+        transform: translateY(-2px);
+    }
+
+    header nav a:active {
+        transform: scale(0.95);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .moon-icon {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .image-box {
+        position: relative; /* Agar teks overlay dapat diposisikan relatif ke container ini */
+        width: 100%; /* Mengambil lebar penuh halaman */
+        aspect-ratio: 8 / 3; /* Membuat tinggi 40% dari lebar elemen */
+        margin: 0 auto; /* Tetap di tengah jika ada konteks tambahan */
+        max-width: none; /* Menghapus batasan lebar */
+        height: auto; /* Menjaga skala elemen */
+        overflow: hidden; /* Memastikan konten tidak meluber */
+    }
+
+    .image-box img {
+        width: 100%; /* Memastikan gambar memenuhi lebar container */
+        height: auto; /* Menjaga aspek rasio gambar */
+        display: block; /* Menghilangkan spasi di bawah gambar */
+    }
+
+    .text-overlay {
+        position: absolute; /* Membuat teks overlay */
+        top: 50%; /* Menempatkan teks di tengah vertikal */
+        left: 50%; /* Menempatkan teks di tengah horizontal */
+        transform: translate(-50%, -50%); /* Memusatkan teks dengan lebih presisi */
+        color: white; /* Warna teks */
+        background-color: rgba(0, 0, 0, 0.5); /* Latar belakang semi-transparan */
+        padding: 10px 20px; /* Memberikan jarak di dalam teks */
+        border-radius: 5px; /* Membuat sudut latar belakang teks melengkung */
+        font-size: 1.5rem; /* Ukuran font */
+        font-weight: bold; /* Menebalkan teks */
+        text-align: center; /* Teks berada di tengah */
+    }
+
+
+
+    .image-box img {
+        width: 100%;
+        height: 100%; /* Menjaga proporsi gambar */
+        border-radius: 10px; /* Opsional, jika tidak diperlukan, bisa dihapus */
+    }
+
+/* Bagian utama layanan */
+.services-section {
     text-align: center;
-}
-header nav a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 20px;
-    margin: 0 10px;
-    font-weight: bold;
-    transition: all 0.3s ease; /* Tambahkan transisi untuk animasi */
-    border-radius: 5px; /* Tambahkan border-radius agar lebih menarik */
-}
-header nav a:hover {
-    background-color: #4CAF50;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Efek shadow */
-    color: white;
-    transform: translateY(-2px); /* Sedikit mengangkat tombol */
-}
-header nav a:active {
-    transform: scale(0.95); /* Memberikan efek klik dengan memperkecil */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Kurangi bayangan saat klik */
-}
-.hero-section {
-    text-align: center;
-    padding: 50px;
-}
-.search-box {
-    display: flex;
-    justify-content: center;
     margin-top: 20px;
-}
-.search-box input[type="text"] {
     padding: 10px;
-    width: 300px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    margin-right: 10px;
 }
-.search-box button {
-    padding: 10px 20px;
-    background-color: #80CEE1;
-    color: white;
-    border: none;
-    border-radius: 5px;
+
+.services-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px; /* Jarak antara judul dan item */
+    font-weight: bold;
+    color: #333; /* Warna teks */
 }
-.image-box {
-    margin-top: 30px;
-    width: 100%;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-.image-box img {
-    width: 100%;
-    border-radius: 10px;
-}
+
+/* Container utama */
 .vendor-category {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin-top: 40px;
+    justify-content: center; /* Pusatkan item */
+    gap: 20px; /* Jarak antar item */
+    flex-wrap: wrap; /* Membungkus jika layar kecil */
+    margin: 0 auto; /* Pastikan konten rata tengah */
+    max-width: 1200px; /* Lebar maksimum container */
 }
-.vendor-category div {
-    width: 200px;
-    height: 200px;
-    background-color: #f3f3f3;
-    margin: 10px;
+
+/* Elemen vendor (card) */
+.vendor-item {
+    position: relative;
+    width: 200px; /* Lebar card */
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.vendor-item p {
+    margin-top: 10px; /* Jarak antara gambar dan teks */
+    font-weight: bold;
+    color: #555;
+}
+
+/* Gambar di dalam card */
+.vendor-item img {
+    max-width: 100%;
+    height: auto;
     border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 18px;
-    color: #80CEE1;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Efek bayangan */
+    transition: transform 0.3s ease-in-out;
 }
+
+/* Efek hover untuk card */
+.vendor-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Layer hover tambahan (efek glow) */
+.vendor-item:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(128, 206, 225, 0.3);
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.vendor-item:hover:before {
+    opacity: 1;
+}
+
+/* Container utama */
+.vendor-category {
+    display: flex;
+    justify-content: space-around; /* Distribusi elemen */
+    flex-wrap: wrap; /* Elemen turun jika layar kecil */
+    margin-top: 10px; /* Jarak atas */
+    gap: 20px; /* Jarak antar item */
+}
+
+/* Elemen vendor (card) */
+.vendor-item {
+    position: relative;
+    width: 200px; /* Lebar card */
+    margin-bottom: 20px; /* Jarak antar item */
+    text-align: center; /* Teks dan elemen di tengah */
+}
+
+/* Gambar di dalam card */
+.vendor-item img {
+    max-width: 100%; /* Gambar fleksibel */
+    height: auto; /* Menjaga proporsi gambar */
+    border-radius: 8px; /* Opsional: radius sudut */
+    display: block; /* Menghindari inline space */
+    margin: 0 auto; /* Pusatkan gambar */
+}
+
+/* Caption (teks di bawah card) */
+.image-caption {
+    margin-top: 10px; /* Jarak antara gambar dan teks */
+    font-size: 14px;
+    color: #333; /* Warna teks */
+    background-color: #fff; /* Opsional: Warna latar teks */
+    padding: 5px; /* Tambahkan padding jika perlu */
+    border-radius: 5px; /* Opsional: Radius sudut teks */
+}
+
 .vendor-signup {
+    margin-top: 30px;
     background-color: #80CEE1;
     padding: 40px 20px;
     text-align: center;
@@ -89,49 +220,110 @@ header nav a:active {
     max-width: 100%;
     overflow: hidden;
 }
+
 .testimonials-box {
-    padding-left: 20px;
-    padding-right: 20px;
     display: flex;
     justify-content: space-around;
-    margin-bottom: 30px;
-    width: 100%;
-    max-width: 100%;
-    overflow: hidden;
+    gap: 20px;
+    flex-wrap: wrap;
 }
-.testimonial:first-child {
-    padding-left: 20px;
+
+.testimonial-group {
+    background-color: #d0f0ff; /* Biru muda */
+    padding: 20px;
+    border-radius: 12px;
+    width: 30%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+.caption {
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #333;
+}
+
 .testimonial {
     background-color: #88f34f;
     color: white;
     padding: 20px;
-    width: 30%;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    padding-left: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.testimonial:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
 .testimonial p {
     font-size: 16px;
 }
-.testimonial strong {
-    font-weight: bold;
-}
+
+
 .signup-button {
     margin-top: 20px;
 }
-.btn-register {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    text-transform: uppercase;
+.footer {
+    background-color: #222; /* Warna latar belakang */
+    color: #fff; /* Warna teks */
+    padding: 20px 10px; /* Jarak dalam */
+    text-align: center; /* Teks berada di tengah */
+    font-size: 0.9rem; /* Ukuran font */
 }
-.btn-register:hover {
-    background-color: #45a049;
+
+.footer a {
+    color: #00acee; /* Warna link (contoh: biru Instagram) */
+    text-decoration: none; /* Menghilangkan garis bawah */
+}
+
+.footer a:hover {
+    text-decoration: underline; /* Memberi garis bawah saat hover */
+}
+
+.contact-info p {
+    margin: 5px 0; /* Memberikan jarak antar baris */
+}
+
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 20px;
+    }
+
+    .search-box input[type="text"] {
+        width: 80%;
+        margin-bottom: 10px;
+    }
+
+    .search-box button {
+        width: 80%;
+        padding: 10px;
+    }
+
+    .vendor-category {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .vendor-category div {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+    .testimonials-box {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .testimonial {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
 }

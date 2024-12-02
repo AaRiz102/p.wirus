@@ -14,4 +14,10 @@ export default defineConfig({
   build: {
     outDir: 'public/build', // Menentukan output direktori build
   },
+    resolve: {
+        alias: {
+            '@': '/resources'
+        }
+    }
 });
+
