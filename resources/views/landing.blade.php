@@ -13,7 +13,7 @@
     <script>
         var botmanWidget = {
             introMessage: "Halo! Ada yang bisa saya bantu hari ini?",
-            title: "Wedding Chatbot",
+            title: "AFIFAH BACKDROP",
             placeholderText: "Ketik pesan Anda...",
             aboutText: "Powered by BotMan"
         };
@@ -23,7 +23,7 @@
 <body>
     <header>
         <div>
-            <h1>Wedding Platform</h1>
+            <h1>AFIFAH BACKDROP</h1>
             <nav>
                 <a href="/">Home</a>
                 <a href="/about">About</a>
@@ -36,25 +36,17 @@
     <div class="hero-section">
         <h2>Selamat datang di Wedding Platform</h2>
         <p>Temukan berbagai vendor pernikahan terbaik di sini</p>
-        <a href="/dashboard" style="padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px;">Mulai</a>
+        {{-- <a href="/dashboard" style="padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px;">Mulai</a> --}}
     </div>
 
     <div class="image-box">
         <img src="https://via.placeholder.com/600x300" alt="Image Showcase">
     </div>
 
-    <div class="search-box">
-        <form action="{{ route('search') }}" method="GET" class="search-box">
-            <input type="text" name="query" placeholder="Cari vendor atau layanan..." value="{{ request('query') }}">
-            <button type="submit">Cari</button>
-        </form>
-    </div>
-
     <div class="vendor-category">
-        <div>Fotografer</div>
-        <div>Dekorator</div>
-        <div>Tempat Pernikahan</div>
-        <div>Musik & Hiburan</div>
+        <div>Dekorasi</div>
+        <div>HEINA</div>
+        <div>souvenir</div>
     </div>
 
     <div class="vendor-signup">
