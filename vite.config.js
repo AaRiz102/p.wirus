@@ -5,8 +5,9 @@ export default defineConfig({
   plugins: [
     laravel({
       input: [
-        'resources/css/landing/style.css', // Path ke file CSS Anda
-        'resources/js/chatbot.js',  // Tambahkan chatbot.js
+       'resources/css/landing/style.css', // Path ke file CSS Anda
+       'resources/css/app.css', // Path ke file CSS Anda
+        'resources/js/app.js',  // Tambahkan chatbot.js
       ],
       refresh: true,
     }),

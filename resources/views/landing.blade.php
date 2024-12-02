@@ -5,11 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Platform</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-
     <!-- Memuat CSS dari Vite -->
     @vite('resources/css/landing/style.css')
-
-
 </head>
 <body>
     <header>
@@ -65,26 +62,6 @@
             <a href="/register-vendor" class="btn-register">Daftar Jadi Vendor</a>
         </div>
     </div>
-
-    <!-- Chatbot HTML -->
-    <div id="chatbot">
-        <div id="chatbot-header">
-            <h3>Chat with us</h3>
-            <button id="chatbot-minimize-btn">-</button>
-        </div>
-        <div id="chatbot-body">
-            <p><strong>Chatbot:</strong> Hello! How can I assist you today?</p>
-        </div>
-        <input class="chatbot-input" id="chatbot-input" type="text" placeholder="Type your message...">
-        <button id="chatbot-send-btn">Send</button>
-    </div>
-
-    <!-- Button untuk membuka chatbot -->
-    <button class="chatbot-toggle-btn" onclick="toggleChatbot()">💬</button>
-
-    <!-- Script untuk chatbot -->
-    <script src="resources/js/chatbot.js"></script>
-
 
 </body>
 </html>

@@ -1,3 +1,4 @@
+/* Global Styling */
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
@@ -20,10 +21,33 @@ header nav a {
 header nav a:hover {
     background-color: #80CEE1;
 }
+
+/* Hero Section */
 .hero-section {
     text-align: center;
     padding: 50px;
+    background-color: #f3f3f3;
 }
+.hero-section h2 {
+    margin: 0;
+    font-size: 2rem;
+}
+.hero-section p {
+    font-size: 1.1rem;
+}
+.hero-section .btn-start {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.hero-section .btn-start:hover {
+    background-color: #45a049;
+}
+
+/* Search Box */
 .search-box {
     display: flex;
     justify-content: center;
@@ -43,6 +67,8 @@ header nav a:hover {
     border: none;
     border-radius: 5px;
 }
+
+/* Image Showcase */
 .image-box {
     margin-top: 30px;
     width: 100%;
@@ -54,44 +80,40 @@ header nav a:hover {
     width: 100%;
     border-radius: 10px;
 }
+
+/* Vendor Categories */
 .vendor-category {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-evenly;
     margin-top: 40px;
+    padding: 0 20px;
 }
 .vendor-category div {
     width: 200px;
     height: 200px;
     background-color: #f3f3f3;
-    margin: 10px;
+    margin: 20px;
     border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 18px;
     color: #80CEE1;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+/* Vendor Signup */
 .vendor-signup {
     background-color: #80CEE1;
     padding: 40px 20px;
     text-align: center;
-    width: 100%;
-    max-width: 100%;
-    overflow: hidden;
+    margin-top: 40px;
 }
 .testimonials-box {
-    padding-left: 20px;
-    padding-right: 20px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     margin-bottom: 30px;
-    width: 100%;
-    max-width: 100%;
-    overflow: hidden;
-}
-.testimonial:first-child {
-    padding-left: 20px;
 }
 .testimonial {
     background-color: #88f34f;
@@ -102,8 +124,6 @@ header nav a:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     word-wrap: break-word;
-    overflow-wrap: break-word;
-    padding-left: 20px;
 }
 .testimonial p {
     font-size: 16px;
@@ -125,4 +145,72 @@ header nav a:hover {
 }
 .btn-register:hover {
     background-color: #45a049;
+}
+
+/* Media Queries untuk Responsivitas */
+
+/* Untuk perangkat dengan lebar layar kurang dari 768px (tablet dan ponsel) */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 30px 20px;
+    }
+
+    .search-box input[type="text"] {
+        width: 250px;
+    }
+
+    .image-box {
+        max-width: 100%;
+    }
+
+    .vendor-category {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+    }
+
+    .vendor-category div {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+    .testimonials-box {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .testimonial {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Untuk perangkat dengan lebar layar kurang dari 480px (ponsel kecil) */
+@media (max-width: 480px) {
+    .hero-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .hero-section p {
+        font-size: 1rem;
+    }
+
+    .search-box input[type="text"], .search-box button {
+        width: 90%;
+    }
+
+    .vendor-category div {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .testimonial {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .btn-register {
+        width: 100%;
+        padding: 12px;
+    }
 }
