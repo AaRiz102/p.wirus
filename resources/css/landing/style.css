@@ -16,9 +16,18 @@ header nav a {
     padding: 10px 20px;
     margin: 0 10px;
     font-weight: bold;
+    transition: all 0.3s ease; /* Tambahkan transisi untuk animasi */
+    border-radius: 5px; /* Tambahkan border-radius agar lebih menarik */
 }
 header nav a:hover {
-    background-color: #80CEE1;
+    background-color: #4CAF50;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Efek shadow */
+    color: white;
+    transform: translateY(-2px); /* Sedikit mengangkat tombol */
+}
+header nav a:active {
+    transform: scale(0.95); /* Memberikan efek klik dengan memperkecil */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Kurangi bayangan saat klik */
 }
 .hero-section {
     text-align: center;
