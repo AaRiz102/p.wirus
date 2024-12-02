@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wedding Platform</title>
+    <title>Afifah Backdrop</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <!-- Memuat CSS dari Vite -->
     @vite('resources/css/landing/style.css')
@@ -11,20 +11,18 @@
 <body>
     <header>
         <div>
-            <h1>Wedding Platform</h1>
+            <h1>Afifah Backdrop</h1>
             <nav>
-                <a href="/">Home</a>
-                <a href="/about">About</a>
-                <a href="/services">Services</a>
-                <a href="/contact">Contact</a>
+                <a href="/">Beranda</a>
+                <a href="/services">Produk</a>
+                <a href="/contact">Kontak</a>
             </nav>
         </div>
     </header>
 
     <div class="hero-section">
-        <h2>Selamat datang di Wedding Platform</h2>
-        <p>Temukan berbagai vendor pernikahan terbaik di sini</p>
-        <a href="/dashboard" class="btn-start">Mulai</a>
+        <h2>Selamat datang di Afifah Backdrop</h2>
+        <p>Momen bahagia bersama Afifah Backdrop</p>
     </div>
 
     <div class="image-box">
