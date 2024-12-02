@@ -6,7 +6,7 @@ export default defineConfig({
     laravel({
       input: [
         'resources/css/landing/style.css', // Path ke file CSS Anda
-        'resources/js/app.js', // Pastikan juga menambahkan file JS yang relevan
+        'resources/js/chatbot.js',  // Tambahkan chatbot.js
       ],
       refresh: true,
     }),

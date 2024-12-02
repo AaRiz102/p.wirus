@@ -8,6 +8,8 @@
 
     <!-- Memuat CSS dari Vite -->
     @vite('resources/css/landing/style.css')
+
+
 </head>
 <body>
     <header>
@@ -25,7 +27,7 @@
     <div class="hero-section">
         <h2>Selamat datang di Wedding Platform</h2>
         <p>Temukan berbagai vendor pernikahan terbaik di sini</p>
-        <a href="/dashboard" style="padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px;">Mulai</a>
+        <a href="/dashboard" class="btn-start">Mulai</a>
     </div>
 
     <div class="image-box">
@@ -33,7 +35,7 @@
     </div>
 
     <div class="search-box">
-        <form action="{{ route('search') }}" method="GET" class="search-box">
+        <form action="{{ route('search') }}" method="GET">
             <input type="text" name="query" placeholder="Cari vendor atau layanan..." value="{{ request('query') }}">
             <button type="submit">Cari</button>
         </form>
@@ -63,5 +65,26 @@
             <a href="/register-vendor" class="btn-register">Daftar Jadi Vendor</a>
         </div>
     </div>
+
+    <!-- Chatbot HTML -->
+    <div id="chatbot">
+        <div id="chatbot-header">
+            <h3>Chat with us</h3>
+            <button id="chatbot-minimize-btn">-</button>
+        </div>
+        <div id="chatbot-body">
+            <p><strong>Chatbot:</strong> Hello! How can I assist you today?</p>
+        </div>
+        <input class="chatbot-input" id="chatbot-input" type="text" placeholder="Type your message...">
+        <button id="chatbot-send-btn">Send</button>
+    </div>
+
+    <!-- Button untuk membuka chatbot -->
+    <button class="chatbot-toggle-btn" onclick="toggleChatbot()">💬</button>
+
+    <!-- Script untuk chatbot -->
+    <script src="resources/js/chatbot.js"></script>
+
+
 </body>
 </html>
