@@ -1,23 +1,17 @@
-import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
+import { defineConfig } from 'vite';
 
 export default defineConfig({
   plugins: [
     laravel({
       input: [
-        'resources/js/app.js',
-        'resources/css/app.css',
+        'resources/css/landing/style.css', // Path ke file CSS Anda
+        'resources/js/app.js', // Pastikan juga menambahkan file JS yang relevan
       ],
       refresh: true,
     }),
   ],
   build: {
-    outDir: 'public/build',  // Menentukan folder output
-    manifest: true,  // Mengaktifkan pembuatan file manifest
-    rollupOptions: {
-      input: {
-        app: 'resources/js/app.js',  // Sesuaikan dengan input Anda
-      },
-    },
+    outDir: 'public/build', // Menentukan output direktori build
   },
 });
