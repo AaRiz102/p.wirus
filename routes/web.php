@@ -6,8 +6,8 @@ use App\Http\Controllers\LandingPageController;
 use App\Models\Vendor;
 use App\Http\Controllers\VendorController;
 
-Route::get('/', function () {
-    return view('dashboard  ');
+Route::get('/dashboard', function () {
+    return view('dashboard');
 });
 
 Route::get('/home', function () {
