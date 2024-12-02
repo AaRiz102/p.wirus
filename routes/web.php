@@ -29,7 +29,6 @@ Route::get('/login', [AuthController::class, 'loginPage'])->name('login');
 // Route untuk fitur pencarian vendor
 Route::get('/search', function () {
     $query = request('query');
-    // Cari vendor berdasarkan nama
     $vendors = Vendor::where('name', 'like', "%$query%")->get();
     return view('search-results', compact('vendors'));
 })->name('search');
@@ -47,7 +46,7 @@ Route::get('/register-vendor', function () {
 // Route untuk menyimpan data vendor baru
 Route::post('/vendor/store', [VendorController::class, 'store'])->name('vendor.store');
 
-// Route untuk chatbot handler (Hanya bisa diakses jika login)
+// Route untuk chatbot handler (dengan middleware login)
 Route::middleware(['auth'])->group(function () {
     Route::post('/botman', function () {
         DriverManager::loadDriver(WebDriver::class);
@@ -55,21 +54,16 @@ Route::middleware(['auth'])->group(function () {
         $config = [];
         $botman = BotManFactory::create($config);
 
-        // Tambahkan percakapan chatbot
         $botman->hears('Hi', function (BotMan $bot) {
-            $bot->reply('Halo! Selamat datang di Pusat Layanan Samsung.');
+            $bot->reply('Halo! Selamat datang di Afifah Backdrop.');
         });
 
         $botman->hears('Reservasi', function (BotMan $bot) {
-            $bot->reply('Anda dapat membuat reservasi perbaikan di sini: [Reservasi Perbaikan](#)');
-        });
-
-        $botman->hears('Status', function (BotMan $bot) {
-            $bot->reply('Anda dapat mengecek status perbaikan di sini: [Status Perbaikan](#)');
+            $bot->reply('Anda dapat membuat reservasi di sini: [Reservasi Perbaikan](#)');
         });
 
         $botman->hears('.*', function (BotMan $bot) {
-            $bot->reply('Maaf, saya tidak memahami pertanyaan Anda. Silakan coba lagi.');
+            $bot->reply('Maaf, saya tidak memahami pertanyaan Anda.');
         });
 
         $botman->listen();
@@ -78,10 +72,8 @@ Route::middleware(['auth'])->group(function () {
 
 // Route untuk menampilkan UI chatbot
 Route::get('/chat', function () {
-    // Cek apakah user sudah login
     if (!auth()->check()) {
         return redirect('/login')->with('error', 'Silakan login untuk menggunakan chatbot.');
     }
-
     return view('chat');
 });
