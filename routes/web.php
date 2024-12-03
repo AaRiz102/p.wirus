@@ -3,12 +3,14 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LandingPageController;
-use App\Http\Controllers\VendorController;
 use App\Models\Vendor;
 use BotMan\BotMan\BotMan;
 use BotMan\BotMan\BotManFactory;
 use BotMan\BotMan\Drivers\DriverManager;
 use BotMan\Drivers\Web\WebDriver;
+use App\Http\Controllers\VendorController;
+
+
 
 // Route untuk halaman dashboard
 Route::get('/dashboard', function () {
@@ -25,26 +27,6 @@ Route::get('/', [LandingPageController::class, 'index']);
 
 // Route untuk halaman login
 Route::get('/login', [AuthController::class, 'loginPage'])->name('login');
-
-// Route untuk fitur pencarian vendor
-Route::get('/search', function () {
-    $query = request('query');
-    $vendors = Vendor::where('name', 'like', "%$query%")->get();
-    return view('search-results', compact('vendors'));
-})->name('search');
-
-// Route untuk halaman vendor
-Route::get('/vendor', function () {
-    return view('vendor');
-});
-
-// Route untuk halaman pendaftaran vendor
-Route::get('/register-vendor', function () {
-    return view('register-vendor');
-});
-
-// Route untuk menyimpan data vendor baru
-Route::post('/vendor/store', [VendorController::class, 'store'])->name('vendor.store');
 
 // Route untuk chatbot handler (dengan middleware login)
 Route::middleware(['auth'])->group(function () {
@@ -77,3 +59,10 @@ Route::get('/chat', function () {
     }
     return view('chat');
 });
+
+// Menampilkan form registrasi dan daftar vendor
+Route::get('/vendors', [VendorController::class, 'index'])->name('vendor.index');
+
+// Menyimpan data vendor
+Route::post('/vendors', [VendorController::class, 'store'])->name('vendor.store');
+
