@@ -1,24 +1,39 @@
+<?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Vendor;
+use App\Models\Vendor; // Pastikan model Vendor sudah ada.
 
 class VendorController extends Controller
 {
+    // Menampilkan halaman form registrasi vendor dan daftar vendor
+    public function index()
+    {
+        $vendors = Vendor::all(); // Ambil semua data vendor
+        return view('vendor.index', compact('vendors'));
+    }
+
+    // Menyimpan data vendor
     public function store(Request $request)
     {
-        // Validasi data
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'service' => 'required|string|max:255',
+        // Validasi input dari form
+        $request->validate([
+            'store_name' => 'required|string|max:50',
+            'store_description' => 'required|string',
+            'address' => 'required|string',
+            'password' => 'required|string|confirmed|min:8', // Validasi password
         ]);
 
-        // Simpan data vendor
+        // Membuat vendor baru
         $vendor = new Vendor();
-        $vendor->name = $request->name;
-        $vendor->service = $request->service;
+        $vendor->store_name = $request->store_name;
+        $vendor->store_description = $request->store_description;
+        $vendor->address = $request->address;
+        $vendor->password = bcrypt($request->password); // Enkripsi password
         $vendor->save();
 
-        return redirect()->route('vendor.success');  // Redirect ke halaman sukses
+        // Redirect ke halaman daftar vendor
+        return redirect()->route('vendor.index')->with('success', 'Vendor berhasil didaftarkan!');
     }
 }

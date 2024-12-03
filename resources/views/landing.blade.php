@@ -29,6 +29,7 @@
             <a href="/">Home</a>
             <a href="#services">Services</a>
             <a href="#footer">Contact</a>
+            <a href=/vendors>Daftar Mitra</a>
         </nav>
     </header>
 
@@ -43,20 +44,27 @@
     <div id="services" class="vendor-category">
         <section class="services-section">
             <h2>Services</h2>
-            <div class="vendor-item">
-                <img src="{{ asset('images/dekor.png') }}" alt="Dekor" style="max-width: 100%; height: 100%;">
-                <p class="image-caption">Dekorasi</p>
-            </div>
-            <div class="vendor-item">
-                <img src="{{ asset('images/hena.png') }}" alt="Hena" style="max-width: 100%; height: 100%;">
-                <p class="image-caption">Hena</p>
-            </div>
-            <div class="vendor-item">
-                <img src="{{ asset('images/sovenir.png') }}" alt="Sovenir" style="max-width: 100%; height: 100%;">
-                <p class="image-caption">Sovenir</p>
-            </div>
+            <a href="https://www.instagram.com/afifahbackdrop/" target="_blank" class="vendor-item">
+                <div>
+                    <img src="{{ asset('images/dekor.png') }}" alt="Dekor" style="max-width: 100%; height: 100%;">
+                    <p class="image-caption">Dekorasi</p>
+                </div>
+            </a>
+            <a href="https://www.instagram.com/afifahhenna.jakarta/" target="_blank" class="vendor-item">
+                <div>
+                    <img src="{{ asset('images/hena.png') }}" alt="Hena" style="max-width: 100%; height: 100%;">
+                    <p class="image-caption">Hena</p>
+                </div>
+            </a>
+            <a href="https://www.instagram.com/afifah_souvenir/" target="_blank" class="vendor-item">
+                <div>
+                    <img src="{{ asset('images/sovenir.png') }}" alt="Sovenir" style="max-width: 100%; height: 100%;">
+                    <p class="image-caption">Sovenir</p>
+                </div>
+            </a>
         </section>
     </div>
+
 
     <div class="vendor-signup">
         <div class="testimonials-box">

@@ -70,10 +70,9 @@
                     </label>
                   </div>
 
-                  <!-- Tombol Daftar dan Simpan -->
-                  <div class="d-flex justify-content-between mx-4 mb-3 mb-lg-4">
+                  <!-- Tombol Daftar -->
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                     <button type="submit" class="btn btn-primary btn-lg">Register</button>
-                    <button type="reset" class="btn btn-secondary btn-lg">Simpan</button> <!-- Tombol Simpan -->
                   </div>
                 </form>
               </div>
@@ -90,7 +89,7 @@
 </section>
 
 <!-- Daftar Vendor -->
-<section class="vh-100 mt-5" style="background-color: #eee;"> <!-- Menambahkan margin top untuk jarak -->
+<section class="vh-100" style="background-color: #eee;">
   <div class="container h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-lg-12 col-xl-11">
