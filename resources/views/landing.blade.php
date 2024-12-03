@@ -89,41 +89,81 @@
         </div>
     </div>
 
-
-
-    </div>
-
     <!-- Chatbot Integration -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            console.log('Memuat validasi login untuk chatbot...');
-            const isLoggedIn = {{ auth()->check() ? 'true' : 'false' }};
+            const suggestionBox = document.createElement('div');
+            suggestionBox.setAttribute('id', 'suggestion-box');
+            suggestionBox.style.position = 'absolute';
+            suggestionBox.style.backgroundColor = '#fff';
+            suggestionBox.style.border = '1px solid #ccc';
+            suggestionBox.style.zIndex = '1000';
+            suggestionBox.style.display = 'none';
+            suggestionBox.style.maxHeight = '150px';
+            suggestionBox.style.overflowY = 'auto';
+            document.body.appendChild(suggestionBox);
 
-            // Tambahkan interval untuk menunggu elemen ikon chatbot
+            const commands = [
+                { command: '/hi', description: 'Menyapa bot' },
+                { command: '/reservasi', description: 'Informasi reservasi' },
+                { command: '/daftar_mitra', description: 'Informasi pendaftaran mitra' },
+                { command: '/perintah', description: 'Menampilkan daftar perintah' }
+            ];
+
+            // Tunggu hingga widget Botman selesai dimuat
             const intervalId = setInterval(() => {
-                const chatbotIcon = document.querySelector('.botman-chat-widget-launcher'); // Ikon chatbot
+                const inputField = document.querySelector('.botman-chat-input');
 
-                if (chatbotIcon) {
-                    console.log('Ikon chatbot ditemukan.');
-                    clearInterval(intervalId); // Hentikan interval setelah ikon ditemukan
+                if (inputField) {
+                    clearInterval(intervalId);
 
-                    // Tambahkan event listener untuk klik
-                    chatbotIcon.addEventListener('click', function (event) {
-                        console.log('Ikon chatbot diklik.');
+                    inputField.addEventListener('keyup', function (e) {
+                        const inputValue = inputField.value;
 
-                        // Jika pengguna belum login
-                        if (!isLoggedIn) {
-                            event.preventDefault(); // Mencegah widget terbuka
-                            alert('Silakan login terlebih dahulu untuk menggunakan chatbot.');
-                            window.location.href = '/login'; // Arahkan ke halaman login
+                        if (inputValue.startsWith('/')) {
+                            suggestionBox.innerHTML = '';
+                            suggestionBox.style.display = 'block';
+                            suggestionBox.style.left = inputField.getBoundingClientRect().left + 'px';
+                            suggestionBox.style.top = (inputField.getBoundingClientRect().top - 180) + 'px'; // Penyesuaian posisi agar terlihat di atas input
+
+                            commands.forEach(cmd => {
+                                if (cmd.command.startsWith(inputValue)) {
+                                    const suggestionItem = document.createElement('div');
+                                    suggestionItem.innerHTML = `<b>${cmd.command}</b> - ${cmd.description}`;
+                                    suggestionItem.style.padding = '8px';
+                                    suggestionItem.style.cursor = 'pointer';
+
+                                    suggestionItem.addEventListener('click', function () {
+                                        inputField.value = cmd.command;
+                                        suggestionBox.style.display = 'none';
+                                        inputField.focus();
+                                    });
+
+                                    suggestionBox.appendChild(suggestionItem);
+                                }
+                            });
                         } else {
-                            console.log('Pengguna sudah login. Chatbot akan dibuka.');
+                            suggestionBox.style.display = 'none';
+                        }
+                    });
+
+                    document.addEventListener('click', function (e) {
+                        if (!suggestionBox.contains(e.target) && e.target !== inputField) {
+                            suggestionBox.style.display = 'none';
                         }
                     });
                 }
-            }, 500); // Periksa setiap 500ms
+            }, 500);
         });
     </script>
+
+
+
+
+
+
+
+
 
     <footer id="footer" class="footer">
         <div class="footer-content">
